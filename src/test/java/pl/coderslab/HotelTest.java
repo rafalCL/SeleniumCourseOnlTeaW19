@@ -11,6 +11,7 @@ import java.time.Duration;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class HotelTest {
     private WebDriver driver;
@@ -44,5 +45,8 @@ public class HotelTest {
         assertEquals(pageUrl, driver.getCurrentUrl());
         List<WebElement> errorBorderElements = driver.findElements(By.cssSelector("#search_hotel_block_form .error_border"));
         assertEquals(4, errorBorderElements.size());
+        for (WebElement e : errorBorderElements) {
+            assertTrue(e.getAttribute("class").contains("error_border"));
+        }
     }
 }
