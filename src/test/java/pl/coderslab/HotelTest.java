@@ -13,11 +13,9 @@ public class HotelTest {
         WebDriver driver = new ChromeDriver();
         driver.get("https://hotel-testlab.coderslab.pl/en/");
         WebElement hotelLocationInput = driver.findElement(By.id("hotel_location"));
-        hotelLocationInput.clear();
-        hotelLocationInput.sendKeys("Warsaw");
+        WebElementUtil.setText("Warsaw", hotelLocationInput);
         WebElement newsletterEmailInput = driver.findElement(By.id("newsletter-input"));
-        newsletterEmailInput.clear();
-        newsletterEmailInput.sendKeys("test@test.com");
+        WebElementUtil.setText("test@test.com", newsletterEmailInput);
 //        driver.quit();
     }
 }
