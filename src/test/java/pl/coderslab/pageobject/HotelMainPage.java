@@ -1,26 +1,29 @@
 package pl.coderslab.pageobject;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class HotelMainPage {
-    private WebDriver driver;
+    @FindBy(id = "newsletter-input")
+    private WebElement newsletterInput;
+    @FindBy(name = "submitNewsletter")
+    private WebElement submitNewsletter;
+    @FindBy(css = ".alert.alert-success")
+    WebElement successPanel;
 
     public HotelMainPage(WebDriver driver) {
-        this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     public void subscribeToNotifications(String email) {
-        WebElement newsletterInput = driver.findElement(By.id("newsletter-input"));
-        WebElement submitNewsletter = driver.findElement(By.name("submitNewsletter"));
         newsletterInput.clear();
         newsletterInput.sendKeys(email);
         submitNewsletter.click();
     }
 
     public String getSuccessText() {
-        WebElement successPanel = driver.findElement(By.cssSelector(".alert.alert-success"));
         return successPanel.getText();
     }
 }
