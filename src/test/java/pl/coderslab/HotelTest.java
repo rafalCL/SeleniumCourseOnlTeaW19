@@ -24,7 +24,7 @@ public class HotelTest {
     }
 
     @Test
-    public void shouldSearchWithDuckDuckGo() {
+    public void shouldInputHotelData() {
         this.driver.get("https://hotel-testlab.coderslab.pl/en/");
         WebElement hotelLocationInput = driver.findElement(By.id("hotel_location"));
         WebElementUtil.setText("Warsaw", hotelLocationInput);
