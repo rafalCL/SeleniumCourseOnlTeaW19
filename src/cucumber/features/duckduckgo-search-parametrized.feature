@@ -5,6 +5,7 @@ Feature: Search text with DuckDuckGo.com
     When Search phrase: <searchPhrase> entered in search input box
     And Key Enter pressed
     Then First <count> search results contain phrase: <expectedResultSubstring>
+    And Save Screenshot
 
     Examples:
     |searchPhrase          | expectedResultSubstring | count |
