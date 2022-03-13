@@ -1,0 +1,9 @@
+pl\coderslab\HotelTest.class
+pl\coderslab\pageobject\HotelTest.class
+pl\coderslab\DdgSearchTest.class
+pl\coderslab\pageobject\HotelMainPage.class
+pl\coderslab\JUnitExampleTest.class
+pl\coderslab\cucumberexample\DuckDuckGoTextSearchSteps.class
+pl\coderslab\WebElementUtil.class
+pl\coderslab\pageobject\RandomStringExample.class
+pl\coderslab\AssertionsExampleTest.class
