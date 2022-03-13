@@ -23,7 +23,7 @@ public class DuckDuckGoTextSearchSteps {
         this.driver.get(pageUrl);
     }
 
-    @When("^Search phrase: \"(.*)\" entered in search input box$")
+    @When("^Search phrase: (.*) entered in search input box$")
     public void searchForPhrase(String phrase) {
         WebElement searchInputBox = driver.findElement(By.id("search_form_input_homepage"));
         searchInputBox.clear();
@@ -36,7 +36,7 @@ public class DuckDuckGoTextSearchSteps {
         searchInputBox.sendKeys(Keys.ENTER);
     }
 
-    @Then("^First (.*) search results contain phrase: \"(.*)\"$")
+    @Then("^First (.*) search results contain phrase: (.*)$")
     public void firstResultsContainPhrase(int count, String requiredPhrase) {
         List<WebElement> searchResultsLinks = driver.findElements(By.className("result__a"));
         for (int i = 0; i < count; i++) {

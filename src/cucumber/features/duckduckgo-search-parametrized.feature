@@ -2,9 +2,9 @@ Feature: Search text with DuckDuckGo.com
 
   Scenario Outline: Search with https://duckduckgo.com/
     Given Page https://duckduckgo.com/ opened in browser
-    When Search phrase: "<searchPhrase>" entered in search input box
+    When Search phrase: <searchPhrase> entered in search input box
     And Key Enter pressed
-    Then First <count> search results contain phrase: "<expectedResultSubstring>"
+    Then First <count> search results contain phrase: <expectedResultSubstring>
 
     Examples:
     |searchPhrase          | expectedResultSubstring | count |
