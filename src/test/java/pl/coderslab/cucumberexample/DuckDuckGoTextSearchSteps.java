@@ -16,18 +16,18 @@ import java.util.List;
 public class DuckDuckGoTextSearchSteps {
     private WebDriver driver;
 
-    @Given("^Page https://duckduckgo.com/ opened in browser$")
-    public void pageOpenedInBrowser() {
+    @Given("^Page (.*) opened in browser$")
+    public void pageOpenedInBrowser(String pageUrl) {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         this.driver = new ChromeDriver();
-        this.driver.get("https://duckduckgo.com/");
+        this.driver.get(pageUrl);
     }
 
-    @When("^Search phrase: \"W pustyni i w puszczy\" entered in search input box$")
-    public void searchForPhrase() {
+    @When("^Search phrase: \"(.*)\" entered in search input box$")
+    public void searchForPhrase(String phrase) {
         WebElement searchInputBox = driver.findElement(By.id("search_form_input_homepage"));
         searchInputBox.clear();
-        searchInputBox.sendKeys("w pustyni i w puszczy");
+        searchInputBox.sendKeys(phrase);
     }
 
     @And("^Key Enter pressed$")
@@ -36,11 +36,10 @@ public class DuckDuckGoTextSearchSteps {
         searchInputBox.sendKeys(Keys.ENTER);
     }
 
-    @Then("^First 3 search results contain phrase: \"W pustyni i w puszczy\"$")
-    public void firstResultsContainPhrase() {
+    @Then("^First (.*) search results contain phrase: \"(.*)\"$")
+    public void firstResultsContainPhrase(int count, String requiredPhrase) {
         List<WebElement> searchResultsLinks = driver.findElements(By.className("result__a"));
-        final String requiredPhrase = "W pustyni i w puszczy";
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < count; i++) {
             String linkText = searchResultsLinks.get(i).getText();
             if (!linkText.toLowerCase()
                     .contains(requiredPhrase.toLowerCase())) {
