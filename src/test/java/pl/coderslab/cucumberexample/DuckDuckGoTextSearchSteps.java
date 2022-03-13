@@ -62,4 +62,9 @@ public class DuckDuckGoTextSearchSteps {
         String currentDateTime = LocalDateTime.now().toString().replaceAll(":", "_");
         Files.copy(tmpScreenshot.toPath(), Paths.get("C:", "test-evidence", "ddg-search-"+currentDateTime+".png"));
     }
+
+    @And("^Quit WebDriver$")
+    public void quitWebDriver() {
+        driver.quit();
+    }
 }

@@ -31,7 +31,7 @@ public class DuckDuckGoMainPage {
 
     public List<String> getSearchResultsLinksTexts() {
         List<String> result = new ArrayList<>();
-        List<WebElement> searchResultsLinks = driver.findElements(By.className("result__a"));
+        List<WebElement> searchResultsLinks = driver.findElements(By.className("js-result-title-link"));
 
         for (WebElement thisLink : searchResultsLinks) {
             result.add(thisLink.getText());
