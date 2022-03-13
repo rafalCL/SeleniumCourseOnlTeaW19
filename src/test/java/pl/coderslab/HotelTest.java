@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 
 import java.time.Duration;
 import java.util.List;
@@ -31,6 +32,14 @@ public class HotelTest {
         WebElement newsletterEmailInput = driver.findElement(By.id("newsletter-input"));
         WebElementUtil.setText("test@test.com", newsletterEmailInput);
 //        driver.quit();
+    }
+
+    @Test
+    public void shouldReactToHover() {
+        this.driver.get("https://hotel-testlab.coderslab.pl/en/");
+        WebElement shoppingCart = driver.findElement(By.className("shopping_cart"));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(shoppingCart).build().perform();
     }
 
     @Test
